@@ -6,6 +6,7 @@ import ArticleList from "./ArticleList";
 import { fetchArticles } from "./services/articleService";
 import Api from "./Api";
 import Modal from "./Modal/Modal";
+import SwapiExample from "./SwapiExample";
 
 export default function App() {
   const [articles, setArticles] = useState<Article[]>([]);
@@ -31,11 +32,12 @@ export default function App() {
 
   return (
     <>
+      <SwapiExample />
       <SearchForm onSubmit={handleSearch} />
       {isLoading && <p>Please wait, loading is in process</p>}
       {isError && <p>Woops! Something went wrong, please try again later</p>}
       {articles.length > 0 && <ArticleList items={articles} />}
-      <Api />
+      {/* <Api /> */}
       <button onClick={openModal}>Open Modal</button>
       {isModalOpen && (
         <Modal onClose={closeModal}>
